@@ -179,10 +179,6 @@ OFFICE DESTRUCTION GIRL と対バン。キヌ+ のピアノ。
 オープンライブに「あず」氏のバンドで出演。
 - X: https://x.com/lactoice251/status/1671186203700494337
 
-### 仮想水槽4 — 2022-09-25
-Live Coding・ピアノ・VR楽器を用いた実験的な内容。
-- X: https://x.com/lactoice251/status/1566731788499980288
-
 ### Tide Tyde — 2022
 即興演奏 × DJ × Machine Live × livecoding × VJ のイベント。
 - X: https://x.com/bijutsuyarou/status/1555497972351508481 （投稿元 @bijutsuyarou）
@@ -193,7 +189,11 @@ ACT: Yuki Hata, R.Tone, K.ᴗ.(くう), らくとあいす, Haniwa(アメリカ�
 VJ: 長野光宏, Chanoma ／ World owner: STANGUN ／ Camera: Moiri
 - X: https://x.com/bijutsuyarou/status/1341700103011139584 （投稿元 @bijutsuyarou）
 
-## 展示・VR楽器
+## VR楽器
+
+### 仮想水槽4 — 2022-09-25
+Live Coding・ピアノ・VR楽器を用いた実験的な内容。
+- X: https://x.com/lactoice251/status/1566731788499980288
 
 ### アルテマ音楽祭 — 2019
 VRによる新たな音楽表現を追究するライブイベント。2019年に複数回参加。
