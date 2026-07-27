@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Works — Lactoice</title>
+<meta name="description" content="関わった作品のクレジットと紹介映像のまとめ">
+
+<!-- OGP（SNSでリンクを貼ったときの見え方。画像を用意したら og:image を有効化） -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Works — Lactoice">
+<meta property="og:description" content="関わった作品のクレジットと紹介映像のまとめ">
+<!-- <meta property="og:image" content="https://<ユーザー名>.github.io/ogp.png"> -->
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #fbfbfa;
+    --fg: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e2e2df;
+    --card: #ffffff;
+    --accent: #1a1a1a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131314;
+      --fg: #ececec;
+      --muted: #9a9a9a;
+      --line: #2c2c2e;
+      --card: #1b1b1d;
+      --accent: #ececec;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
+                 "Noto Sans JP", Meiryo, sans-serif;
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 96px; }
+
+  /* ---- ヘッダー ---- */
+  header { padding: 72px 0 40px; }
+  h1 {
+    font-size: 26px;
+    letter-spacing: .02em;
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+  .tagline { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
+  .profile-links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+  .profile-links a {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--fg);
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .profile-links a:hover { background: var(--card); border-color: var(--muted); }
+
+  /* ---- フィルタ ---- */
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 16px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  .filters button {
+    font: inherit; font-size: 13px;
+    padding: 4px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .filters button:hover { color: var(--fg); }
+  .filters button[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+  }
+
+  /* ---- 作品カード ---- */
+  .work {
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+  }
+  .work[hidden] { display: none; }
+  .work-year {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .08em;
+    font-variant-numeric: tabular-nums;
+  }
+  .work-title {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 2px 0 6px;
+    line-height: 1.5;
+  }
+  .work-role {
+    font-size: 14px;
+    color: var(--fg);
+    margin: 0 0 6px;
+  }
+  .work-role b { font-weight: 700; }
+  .work-note {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 0 12px;
+    white-space: pre-wrap;
+  }
+  .work-links { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+  .work-links a {
+    font-size: 13px;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+  }
+  .work-links a:hover { border-color: var(--fg); }
+
+  /* ---- X埋め込みスロット ---- */
+  .embed {
+    min-height: 0;
+    margin-top: 4px;
+  }
+  .embed .twitter-tweet { margin: 0 !important; }
+  .embed-skeleton {
+    height: 160px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .embed-fallback {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--card);
+  }
+  .embed-fallback a { color: var(--fg); }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1 id="site-name">Lactoice</h1>
+    <p class="tagline" id="site-tagline">関わった作品のクレジットと紹介映像のまとめ</p>
+    <ul class="profile-links" id="profile-links"></ul>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="担当で絞り込み"></nav>
+
+  <main id="works"></main>
+
+  <footer>
+    <p>掲載内容に誤りがある場合や、掲載可否についてのご連絡は X の DM までお願いします。</p>
+  </footer>
+
+</div>
+
+<script>
+/* =====================================================================
+   ここだけ編集すれば増やせます。
+
+   tweetId … X のポストURL末尾の数字。
+             https://x.com/foo/status/1234567890123456789
+                                       ^^^^^^^^^^^^^^^^^^^ ここ
+             埋め込みが不要な項目は tweetId を省略してOK。
+   tags    … フィルタ用。表記を揃えると絞り込みボタンが自動生成されます。
+   ===================================================================== */
+
+const PROFILE = {
+  name: "Lactoice",
+  tagline: "関わった作品のクレジットと紹介映像のまとめ",
+  links: [
+    { label: "X", url: "https://x.com/________" },
+    // { label: "pixiv", url: "https://www.pixiv.net/users/______" },
+    // { label: "お問い合わせ", url: "mailto:______@example.com" },
+  ],
+};
+
+const WORKS = [
+  {
+    year: "2026",
+    title: "作品タイトルをここに",
+    role: "音響監督 / 効果",
+    tags: ["音響"],
+    note: "一言メモ。担当範囲の補足や、共同でやった相手など。",
+    tweetId: "",                       // 例: "1234567890123456789"
+    links: [
+      { label: "公式サイト", url: "https://example.com" },
+    ],
+  },
+  {
+    year: "2025",
+    title: "別の作品タイトル",
+    role: "楽曲提供（ED テーマ）",
+    tags: ["音楽"],
+    note: "",
+    tweetId: "",
+    links: [],
+  },
+];
+
+/* ===== ここから下は基本触らなくて大丈夫 ===== */
+
+// --- X widgets.js ローダ（公式スニペット） ---
+window.twttr = (function (d, s, id) {
+  const fjs = d.getElementsByTagName(s)[0];
+  const t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  const js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+  t._e = [];
+  t.ready = function (f) { t._e.push(f); };
+  return t;
+}(document, "script", "twitter-wjs"));
+
+const theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+const el = (tag, cls) => { const n = document.createElement(tag); if (cls) n.className = cls; return n; };
+
+// --- ヘッダー ---
+document.getElementById("site-name").textContent = PROFILE.name;
+document.getElementById("site-tagline").textContent = PROFILE.tagline;
+document.title = "Works — " + PROFILE.name;
+const plist = document.getElementById("profile-links");
+for (const l of PROFILE.links) {
+  const li = el("li");
+  const a = el("a");
+  a.href = l.url;
+  a.textContent = l.label;
+  if (!l.url.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
+  li.append(a);
+  plist.append(li);
+}
+
+// --- 作品リスト ---
+const worksEl = document.getElementById("works");
+const cards = [];
+
+for (const w of WORKS) {
+  const card = el("article", "work");
+  card.dataset.tags = (w.tags || []).join("|");
+
+  if (w.year) {
+    const y = el("div", "work-year");
+    y.textContent = w.year;
+    card.append(y);
+  }
+
+  const h = el("h2", "work-title");
+  h.textContent = w.title;
+  card.append(h);
+
+  if (w.role) {
+    const r = el("p", "work-role");
+    r.textContent = w.role;
+    card.append(r);
+  }
+
+  if (w.note) {
+    const n = el("p", "work-note");
+    n.textContent = w.note;
+    card.append(n);
+  }
+
+  // 埋め込みが死んでも辿れるよう、素のリンクを必ず出す
+  const links = (w.links || []).slice();
+  if (w.tweetId) links.push({ label: "X のポストを開く", url: "https://x.com/i/status/" + w.tweetId });
+  if (links.length) {
+    const ul = el("div", "work-links");
+    for (const l of links) {
+      const a = el("a");
+      a.href = l.url;
+      a.textContent = l.label + " ↗";
+      a.target = "_blank";
+      a.rel = "noopener";
+      ul.append(a);
+    }
+    card.append(ul);
+  }
+
+  if (w.tweetId) {
+    const slot = el("div", "embed");
+    slot.append(el("div", "embed-skeleton"));
+    slot.dataset.tweetId = w.tweetId;
+    card.append(slot);
+  }
+
+  worksEl.append(card);
+  cards.push(card);
+}
+
+// --- 埋め込みは画面に入ってから読む（初回表示を軽くする） ---
+function renderTweet(slot) {
+  const id = slot.dataset.tweetId;
+  let done = false;
+
+  const fail = () => {
+    if (done) return;
+    done = true;
+    slot.innerHTML = "";
+    const f = el("div", "embed-fallback");
+    f.innerHTML = 'ポストを読み込めませんでした。'
+      + '<a href="https://x.com/i/status/' + id + '" target="_blank" rel="noopener">X で開く ↗</a>';
+    slot.append(f);
+  };
+
+  // widgets.js がブロックされている場合の保険
+  const timer = setTimeout(fail, 8000);
+
+  twttr.ready(function () {
+    twttr.widgets.createTweet(id, slot, { theme: theme, align: "left", lang: "ja", dnt: true })
+      .then(function (node) {
+        clearTimeout(timer);
+        if (!node) { fail(); return; }   // 削除・非公開などで null が返る
+        done = true;
+        const sk = slot.querySelector(".embed-skeleton");
+        if (sk) sk.remove();
+      })
+      .catch(function () { clearTimeout(timer); fail(); });
+  });
+}
+
+const io = new IntersectionObserver(function (entries) {
+  for (const e of entries) {
+    if (!e.isIntersecting) continue;
+    io.unobserve(e.target);
+    renderTweet(e.target);
+  }
+}, { rootMargin: "300px" });
+
+document.querySelectorAll(".embed").forEach(function (s) { io.observe(s); });
+
+// --- タグフィルタ（tags を書いた作品があるときだけ表示） ---
+const allTags = [...new Set(WORKS.flatMap(w => w.tags || []))];
+const filters = document.getElementById("filters");
+
+if (allTags.length > 1) {
+  const makeBtn = (label, value) => {
+    const b = el("button");
+    b.textContent = label;
+    b.dataset.value = value;
+    b.setAttribute("aria-pressed", value === "" ? "true" : "false");
+    b.addEventListener("click", () => {
+      filters.querySelectorAll("button").forEach(x =>
+        x.setAttribute("aria-pressed", String(x === b)));
+      cards.forEach(c => {
+        c.hidden = value !== "" && !c.dataset.tags.split("|").includes(value);
+      });
+    });
+    return b;
+  };
+  filters.append(makeBtn("すべて", ""));
+  allTags.forEach(t => filters.append(makeBtn(t, t)));
+} else {
+  filters.remove();
+}
+</script>
+</body>
+</html>
