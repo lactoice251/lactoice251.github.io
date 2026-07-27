@@ -3,164 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Works — Lactoice</title>
-<meta name="description" content="関わった作品のクレジットと紹介映像のまとめ">
+<title>Works — らくとあいす</title>
+<meta name="description" content="らくとあいす（Lactoice）の作品まとめ。VRChat の空間音響・VR楽器・サウンドデザイン。">
 
-<!-- OGP（SNSでリンクを貼ったときの見え方。画像を用意したら og:image を有効化） -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Works — Lactoice">
-<meta property="og:description" content="関わった作品のクレジットと紹介映像のまとめ">
-<!-- <meta property="og:image" content="https://<ユーザー名>.github.io/ogp.png"> -->
+<meta property="og:title" content="Works — らくとあいす">
+<meta property="og:description" content="VRChat の空間音響・VR楽器・サウンドデザイン">
+<!-- <meta property="og:image" content="https://lactoice251.github.io/ogp.png"> -->
 <meta name="twitter:card" content="summary_large_image">
 
 <style>
   :root {
-    --bg: #fbfbfa;
-    --fg: #1a1a1a;
-    --muted: #6b6b6b;
-    --line: #e2e2df;
-    --card: #ffffff;
-    --accent: #1a1a1a;
+    --bg: #fbfbfa; --fg: #1a1a1a; --muted: #6b6b6b;
+    --line: #e2e2df; --card: #ffffff; --accent: #1a1a1a;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #131314;
-      --fg: #ececec;
-      --muted: #9a9a9a;
-      --line: #2c2c2e;
-      --card: #1b1b1d;
-      --accent: #ececec;
+      --bg: #131314; --fg: #ececec; --muted: #9a9a9a;
+      --line: #2c2c2e; --card: #1b1b1d; --accent: #ececec;
     }
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfbfa; --fg: #1a1a1a; --muted: #6b6b6b;
+    --line: #e2e2df; --card: #ffffff; --accent: #1a1a1a;
+  }
+  :root[data-theme="dark"] {
+    --bg: #131314; --fg: #ececec; --muted: #9a9a9a;
+    --line: #2c2c2e; --card: #1b1b1d; --accent: #ececec;
   }
 
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
+    margin: 0; background: var(--bg); color: var(--fg);
     font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
                  "Noto Sans JP", Meiryo, sans-serif;
-    line-height: 1.75;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+    line-height: 1.75; font-size: 16px; -webkit-font-smoothing: antialiased;
   }
-
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px 96px; }
 
-  /* ---- ヘッダー ---- */
-  header { padding: 72px 0 40px; }
-  h1 {
-    font-size: 26px;
-    letter-spacing: .02em;
-    margin: 0 0 10px;
-    font-weight: 700;
-  }
-  .tagline { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
+  /* ヘッダー */
+  header { padding: 72px 0 32px; }
+  h1 { font-size: 27px; letter-spacing: .02em; margin: 0 0 4px; font-weight: 700; }
+  .latin { font-size: 13px; color: var(--muted); letter-spacing: .1em; margin: 0 0 18px; }
+  .bio { margin: 0 0 20px; font-size: 15px; }
   .profile-links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
   .profile-links a {
-    display: inline-block;
-    padding: 5px 12px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    font-size: 13px;
-    color: var(--fg);
-    text-decoration: none;
+    display: inline-block; padding: 5px 13px;
+    border: 1px solid var(--line); border-radius: 999px;
+    font-size: 13px; color: var(--fg); text-decoration: none;
     transition: background .15s, border-color .15s;
   }
   .profile-links a:hover { background: var(--card); border-color: var(--muted); }
 
-  /* ---- フィルタ ---- */
+  /* フィルタ */
   .filters {
+    position: sticky; top: 0; z-index: 10;
     display: flex; flex-wrap: wrap; gap: 6px;
-    padding: 16px 0 8px;
+    padding: 14px 0; margin-bottom: 8px;
     border-top: 1px solid var(--line);
+    background: var(--bg);
   }
   .filters button {
-    font: inherit; font-size: 13px;
-    padding: 4px 12px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all .15s;
+    font: inherit; font-size: 13px; padding: 4px 13px;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: transparent; color: var(--muted);
+    cursor: pointer; transition: all .15s; white-space: nowrap;
   }
   .filters button:hover { color: var(--fg); }
   .filters button[aria-pressed="true"] {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--bg);
+    background: var(--accent); border-color: var(--accent); color: var(--bg);
   }
 
-  /* ---- 作品カード ---- */
-  .work {
-    padding: 32px 0;
-    border-top: 1px solid var(--line);
+  /* セクション */
+  .cat[hidden], .group[hidden], .work[hidden] { display: none; }
+  .cat { margin-top: 56px; }
+  .cat-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .12em;
+    color: var(--muted); margin: 0 0 4px; text-transform: uppercase;
   }
-  .work[hidden] { display: none; }
+  .cat-name {
+    font-size: 21px; font-weight: 700; margin: 0 0 8px;
+    padding-bottom: 14px; border-bottom: 2px solid var(--fg);
+  }
+  .group-title {
+    font-size: 14px; font-weight: 700; color: var(--muted);
+    margin: 34px 0 0; letter-spacing: .04em;
+  }
+
+  /* 作品カード */
+  .work { padding: 28px 0; border-top: 1px solid var(--line); }
+  .group-title + .work { border-top: none; padding-top: 14px; }
   .work-year {
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: .08em;
-    font-variant-numeric: tabular-nums;
+    font-size: 12px; color: var(--muted);
+    letter-spacing: .08em; font-variant-numeric: tabular-nums;
   }
-  .work-title {
-    font-size: 19px;
-    font-weight: 700;
-    margin: 2px 0 6px;
-    line-height: 1.5;
-  }
+  .work-title { font-size: 18px; font-weight: 700; margin: 2px 0 6px; line-height: 1.5; }
   .work-role {
-    font-size: 14px;
-    color: var(--fg);
-    margin: 0 0 6px;
+    font-size: 14px; margin: 0 0 6px;
+    padding-left: 10px; border-left: 2px solid var(--fg);
   }
-  .work-role b { font-weight: 700; }
-  .work-note {
-    font-size: 14px;
-    color: var(--muted);
-    margin: 0 0 12px;
-    white-space: pre-wrap;
-  }
+  .work-note { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
   .work-links { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
   .work-links a {
-    font-size: 13px;
-    color: var(--fg);
-    text-decoration: none;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 1px;
+    font-size: 13px; color: var(--fg); text-decoration: none;
+    border-bottom: 1px solid var(--line); padding-bottom: 1px;
   }
   .work-links a:hover { border-color: var(--fg); }
 
-  /* ---- X埋め込みスロット ---- */
-  .embed {
-    min-height: 0;
-    margin-top: 4px;
-  }
+  /* X埋め込み */
+  .embed { margin-top: 4px; }
   .embed .twitter-tweet { margin: 0 !important; }
-  .embed-skeleton {
-    height: 160px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: var(--card);
-  }
+  .embed-skeleton { height: 150px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
   .embed-fallback {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 14px 16px;
-    font-size: 13px;
-    color: var(--muted);
-    background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+    font-size: 13px; color: var(--muted); background: var(--card);
   }
   .embed-fallback a { color: var(--fg); }
 
   footer {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
-    font-size: 13px;
-    color: var(--muted);
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--line); font-size: 13px; color: var(--muted);
   }
 </style>
 </head>
@@ -168,68 +131,321 @@
 <div class="wrap">
 
   <header>
-    <h1 id="site-name">Lactoice</h1>
-    <p class="tagline" id="site-tagline">関わった作品のクレジットと紹介映像のまとめ</p>
+    <h1 id="site-name"></h1>
+    <p class="latin" id="site-latin"></p>
+    <p class="bio" id="site-bio"></p>
     <ul class="profile-links" id="profile-links"></ul>
   </header>
 
-  <nav class="filters" id="filters" aria-label="担当で絞り込み"></nav>
+  <nav class="filters" id="filters" aria-label="カテゴリで絞り込み"></nav>
 
   <main id="works"></main>
 
   <footer>
-    <p>掲載内容に誤りがある場合や、掲載可否についてのご連絡は X の DM までお願いします。</p>
+    <p>掲載内容の誤りや掲載可否についてのご連絡は X の DM までお願いします。</p>
   </footer>
 
 </div>
 
 <script>
 /* =====================================================================
-   ここだけ編集すれば増やせます。
+   作品を追加するときは WORKS に1件足すだけ。
 
-   tweetId … X のポストURL末尾の数字。
-             https://x.com/foo/status/1234567890123456789
-                                       ^^^^^^^^^^^^^^^^^^^ ここ
-             埋め込みが不要な項目は tweetId を省略してOK。
-   tags    … フィルタ用。表記を揃えると絞り込みボタンが自動生成されます。
+   cat     … CATEGORIES のキー
+   group   … カテゴリ内の小見出し（同じ文字列がまとまる／省略可）
+   tweetId … XポストURL末尾の数字。省略すると埋め込みなし
    ===================================================================== */
 
 const PROFILE = {
-  name: "Lactoice",
-  tagline: "関わった作品のクレジットと紹介映像のまとめ",
+  name: "らくとあいす",
+  latin: "LACTOICE",
+  bio: "VRChat を中心に、空間音響・VR楽器・サウンドデザインをつくっています。2019年ごろから VR楽器の制作に取り組んでいます。ワールド制作案件の音まわりから、ライブコーディング、ピアノでの演奏・レコーディング参加まで。",
   links: [
     { label: "X", url: "https://x.com/lactoice251" },
-    // { label: "pixiv", url: "https://www.pixiv.net/users/______" },
-    // { label: "お問い合わせ", url: "mailto:______@example.com" },
+    { label: "らくとあいすの備忘録（技術ブログ）", url: "https://raku-phys.hatenablog.com/" },
+    { label: "NEORT", url: "https://neort.io/wtZGcNP0u0UT2fUyBTFfv3fb9XR2" },
   ],
 };
 
+const CATEGORIES = [
+  { key: "world",  label: "VRChat ワールド / VR作品" },
+  { key: "coding", label: "サウンドライブコーディング / GLSL Sound" },
+  { key: "live",   label: "イベント出演・演奏" },
+  { key: "music",  label: "楽曲提供・レコーディング参加" },
+];
+
 const WORKS = [
-  {
-    year: "2026",
-    title: "作品タイトルをここに",
-    role: "音響監督 / 効果",
-    tags: ["音響"],
-    note: "一言メモ。担当範囲の補足や、共同でやった相手など。",
-    tweetId: "",                       // 例: "1234567890123456789"
+
+  /* ---------- 1. VRChat ワールド / VR作品 ---------- */
+
+  { cat: "world", group: "案件（音まわり）", year: "2024",
+    title: "Musical Treasure Hunt—Spectral Remix",
+    role: "作曲 / 立体音響エンジニアリング",
+    note: "SANRIO Virtual Festival 2024 のショー。2023年のバーチャルパレード「Musical Treasure Hunt」の続編。監督: キヌ。",
+    tweetId: "1834539787572985857",
+    links: [{ label: "公式ページ", url: "https://v-puroland.sanrio.co.jp/contents/musicaltreasurehuntsr" }] },
+
+  { cat: "world", group: "案件（音まわり）", year: "2024",
+    title: "CIEL 1st VIRTUAL LIVE「空想劇-神椿市伍番街-」",
+    role: "ライブと会場全体の音響",
+    note: "SINKA LIVE SERIES ANOTHER STORY #01。VRクリエイティブチーム MIGIRI がライブ会場・演出・システムを制作。",
+    tweetId: "1791806101803225190", links: [] },
+
+  { cat: "world", group: "案件（音まわり）", year: "2024",
+    title: "TBS「META=KNOT 2024 in AKASAKA BLITZ」",
+    role: "WEEK1〜4 および SIDE EVENT 全体のサラウンド音響 / 会場BGM / SE",
+    note: "TBSテレビ主催のメタバース音楽フェス。2020年に閉館したライブハウス「赤坂BLITZ」を VRChat 上に再現。4週にわたり16組が出演。",
+    tweetId: "1781674239055282639",
+    links: [{ label: "MoguLive 体験レポ", url: "https://www.moguravr.com/meta-knot-2024-report/" }] },
+
+  { cat: "world", group: "案件（音まわり）", year: "2024",
+    title: "モチポリ・ファクトリー",
+    role: "サウンドディレクター / コンポーザー",
+    note: "SANRIO Virtual Festival 2024 内のコンテンツ。モチポリが生まれる工場で、大きな機械がリズミカルに稼働する多人数参加型ワールド。",
+    tweetId: "1754799675272737188",
+    links: [{ label: "XR映画ガイド", url: "https://note.com/xr_eiga_guide/n/n600169ac4468" }] },
+
+  { cat: "world", group: "案件（音まわり）", year: "2023",
+    title: "SEN",
+    role: "音響（フィールドレコーディング / 音インタラクション / 立体音響 / 効果音）",
+    note: "CinemaLeap・Psychic VR Lab 共同製作、伊東ケイスケ監督の VRアニメーション。茶碗型デバイスと心拍センサーを併用し、心拍を映像の光に変換して複数人で共有する。第80回ヴェネチア国際映画祭 XR部門「Venice Immersive」ノミネート。",
+    tweetId: "1688115015621165056",
+    links: [{ label: "STYLY プレスリリース", url: "https://styly.inc/ja/news/vr-animation-sen-nominated-veniceimmersive/" }] },
+
+  { cat: "world", group: "案件（音まわり）", year: "2022",
+    title: "Typeman",
+    role: "VRサウンドエンジニア（音・インタラクション全般）",
+    note: "WOWOW・CinemaLeap 共同製作、伊東ケイスケ監督の VR演劇。VRChat 上でリアルタイムに上演される25分の作品。第79回ヴェネチア国際映画祭 XR部門「Venice Immersive」ノミネート、最優秀短編賞受賞。",
+    tweetId: "1552595925230821378",
+    links: [{ label: "WOWOW ニュースリリース", url: "https://corporate.wowow.co.jp/news/products/4704.html" }] },
+
+  { cat: "world", group: "個人・共同制作", year: "2026",
+    title: "Waves #256",
+    role: "個人制作",
+    note: "立体音響処理を GPU で並列計算し、通常の音源数制限を超えた大量の 3D音源を鳴らせるワールド。大量の音の中を歩ける。",
+    tweetId: "2079048041064186317", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2022",
+    title: "Sound graphilia",
+    role: "個人制作（未公開）",
+    note: "すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。",
+    tweetId: "1537854925346340866", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2021",
+    title: "Canon for cubes",
+    role: "個人制作",
+    note: "カノンのように音列を重ね、建物全体で立体音響を奏でる VR楽器。",
+    tweetId: "1418163952966459393", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2020",
+    title: "Play with cubes",
+    role: "個人制作",
+    note: "誰でも VR楽器で演奏できるワールド。",
+    tweetId: "1295293916594413568", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2020",
+    title: "Amebient",
+    role: "sound and arrangement",
+    note: "phi16 / Cap. / lactoice の3名による共同制作。永遠に雨が降り続ける終わりかけの世界で、雨が物に当たって生まれる音を組み合わせて音楽を作る。VR空間コンテスト「VRAA02」最優秀賞受賞。",
+    tweetId: "1284823157036118017",
+    links: [{ label: "制作記（phi16 / Qiita）", url: "https://qiita.com/phi16/items/20f3e861248ec44808ca" }] },
+
+  { cat: "world", group: "個人・共同制作", year: "2020",
+    title: "UDON AI -tic tac toe-",
+    role: "個人制作",
+    note: "VRChat の中で学習が進む強化学習。三目並べを AI同士で対戦させたり人と対戦させたりして次第に強くなる。",
+    tweetId: "1249725840209793025", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2019",
+    title: "WaveOcean",
+    role: "個人制作",
+    note: "海で遊べるワールド。ボートに乗ったり物を投げたりして水と戯れる。Community Labs 入り。",
+    tweetId: "1155505088430927872", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2019",
+    title: "MNIST 文字認識ワールド",
+    role: "個人制作（未公開）",
+    note: "VRChat に畳み込みニューラルネットワークを持ち込み、手書き文字を認識させる実験。MNIST で学習した重みデータをテクスチャ化して持ち込んでいる。",
+    tweetId: "1140237073573482498", links: [] },
+
+  { cat: "world", group: "個人・共同制作", year: "2019",
+    title: "LightPool",
+    role: "個人制作",
+    note: "触ると光る水、水紋のうつる夜空、空間的に変化する音楽。空飛ぶイルカに乗って楽しめる。",
+    tweetId: "1108516687291142145", links: [] },
+
+  { cat: "world", group: "配布アセット", year: "2020",
+    title: "InteractiveWater（触れる水）",
+    role: "個人制作",
+    note: "BOOTH 配布アセット。VRCSDK 非依存化、小型水面用 Prefab の追加などの更新を重ねている。",
+    tweetId: "1274277443168174081", links: [] },
+
+  /* ---------- 2. サウンドライブコーディング / GLSL Sound ---------- */
+
+  { cat: "coding", group: "ライブ出演", year: "2024",
+    title: "draw(tokyo); #2",
+    role: "Live Coding",
+    note: "リアル会場での初ライブコーディング。",
+    tweetId: "1868233467261317140",
+    links: [{ label: "イベント詳細", url: "https://function-draw.com/tokyo2" }] },
+
+  { cat: "coding", group: "ライブ出演", year: "2024",
+    title: "draw(); #5",
+    role: "GLSL Sound Live Coding",
+    note: "VJ: 避雷（@lucknknock）。",
+    tweetId: "1807061397555273787", links: [] },
+
+  { cat: "coding", group: "ライブ出演", year: "2020",
+    title: "Euler Room Equinox",
+    role: "Live Coding（GLSL + Sonic Pi）",
+    note: "@butadiene121 と共演。#eulerroom #toplap",
+    tweetId: "1241007988405501952", links: [] },
+
+  { cat: "coding", group: "ライブ出演", year: "2019",
+    title: "VRC Algorave",
+    role: "演奏（Sonic Pi + Pure Data）",
+    note: "Algorave in VRChat。主催: @cannorin_vrc ／ 撮影: @kinu_kaiko",
+    tweetId: "1210953359802261509", links: [] },
+
+  { cat: "coding", group: "技術", year: "2021",
+    title: "GLSL ライブコーディングによる VRChat 音楽 / 映像ライブ",
+    role: "システム制作",
+    note: "twigl で音のパラメータを色にエンコードし TopazChat で送信、VRChat 側でデコードして発音する。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。",
+    tweetId: "1360510503865307141", links: [] },
+
+  { cat: "coding", group: "GLSL サウンド作品（NEORT）", year: "2021",
+    title: "Clipped Sky",
+    role: "GLSL サウンド作品",
+    note: "「隙間から覗く空」を音楽として表現。第5回 Shader1weekCompo 参加作。",
+    links: [{ label: "NEORT で見る", url: "https://neort.io/art/c00v8gc3p9f30ks58esg" }] },
+
+  { cat: "coding", group: "GLSL サウンド作品（NEORT）", year: "2020",
+    title: "pulsar",
+    role: "GLSL サウンド作品",
+    note: "周期的な電磁波を放つ天体パルサーをイメージして制作。",
+    links: [{ label: "NEORT で見る", url: "https://neort.io/art/bu0o6l43p9f7gige5rhg" }] },
+
+  { cat: "coding", group: "GLSL サウンド作品（NEORT）", year: "2020",
+    title: "Arrival",
+    role: "GLSL サウンド作品",
+    note: "「新しい何かが到来する前兆としての風」を表現。第3回 Shader1weekCompo（テーマ「風」）参加作。",
+    links: [{ label: "NEORT で見る", url: "https://neort.io/art/bsel39k3p9f6ochicqng" }] },
+
+  { cat: "coding", group: "GLSL サウンド作品（NEORT）", year: "2020",
+    title: "Circular Progression",
+    role: "GLSL サウンド作品",
+    note: "Shader1weekCompo のテーマ「続く」から着想。循環するコードとシーケンスで構成。",
+    links: [{ label: "NEORT で見る", url: "https://neort.io/art/br0if5s3p9f194rkh17g" }] },
+
+  /* ---------- 3. イベント出演・演奏 ---------- */
+
+  { cat: "live", group: "ライブ出演（ピアノ）", year: "2026",
+    title: "キヌ+",
+    role: "ピアノ",
+    note: "OFFICE DESTRUCTION GIRL と対バン。",
+    tweetId: "2055272548317970702", links: [] },
+
+  { cat: "live", group: "ライブ出演（ピアノ）", year: "2021–",
+    title: "Jazz in VRC",
+    role: "ピアノ",
+    note: "サックス（sobunesaki ほか）× ピアノ × ドラム（bijutsuyarou ほか）によるベースレス即興トリオ。2021年5月始動。JAZZ IN VRC PART4（2022）、Resonance（2022）、GLITCH JAZZ IN VRC（2023）、Silky Blue イベント（2024）、VRC_Lumina（2026）などに出演。",
+    tweetId: "1868154530065780779", links: [] },
+
+  { cat: "live", group: "ライブ出演（ピアノ）", year: "2023",
+    title: "JAZZ BAR JIVE",
+    role: "ピアノ",
+    note: "オープンライブに「あず」氏のバンドで出演。",
+    tweetId: "1671186203700494337", links: [] },
+
+  { cat: "live", group: "ライブ出演（ピアノ）", year: "2022",
+    title: "仮想水槽4",
+    role: "Live Coding / ピアノ / VR楽器",
+    note: "2022-09-25 開催。実験的な内容で出演。",
+    tweetId: "1566731788499980288", links: [] },
+
+  { cat: "live", group: "ライブ出演（ピアノ）", year: "2022",
+    title: "Tide Tyde",
+    role: "即興演奏",
+    note: "即興演奏 × DJ × Machine Live × livecoding × VJ のイベント。",
+    tweetId: "1555497972351508481", links: [] },
+
+  { cat: "live", group: "ライブ出演（ピアノ）", year: "2021",
+    title: "仮想水槽 part2",
+    role: "ピアノ",
+    note: "2021-01-24 開催。VRChat（Night Pool & Stage）+ YouTube Live。ACT: Yuki Hata / R.Tone / K.ᴗ.(くう) / らくとあいす / Haniwa（アメリカ民謡研究会）。VJ: 長野光宏, Chanoma ／ World owner: STANGUN ／ Camera: Moiri",
+    tweetId: "1341700103011139584", links: [] },
+
+  { cat: "live", group: "展示・VR楽器", year: "2023",
+    title: "VR Sound Museum \"otopia\"",
+    role: "出展",
+    note: "EMN Records「Butterfly」「うきぐも」、VR楽器「Canon for cubes」「Trichord」を出展。",
+    tweetId: "1700128019116110165", links: [] },
+
+  { cat: "live", group: "展示・VR楽器", year: "2019",
+    title: "アルテマ音楽祭",
+    role: "出演 / 楽曲・ギミック制作",
+    note: "VRによる新たな音楽表現を追究するライブイベント。2019年に複数回参加。バーチャルマーケット2 では「バーチャルミュージアム」に常設出展し、会場に散らばった「音」を集めると楽曲が完成していくギミックを、曲・ギミック・アニメーションすべて新作で制作。ALTEMA MUSIC FESTIVAL #1.5（秋葉原エンタス）にも出演。",
+    tweetId: "1103225483246727169",
+    links: [{ label: "ALTEMA MUSIC FESTIVAL #1.5", url: "https://x.com/lactoice251/status/1124134180458131456" }] },
+
+  { cat: "live", group: "展示・VR楽器", year: "2018",
+    title: "第3回VRアートイベント",
+    role: "VR楽器演奏",
+    note: "現時点で確認できる最も古い活動記録。",
+    tweetId: "1054542367477325824",
+    links: [{ label: "配信アーカイブ", url: "https://youtu.be/Ay32kFXWsJc?t=3557" }] },
+
+  /* ---------- 4. 楽曲提供・レコーディング参加 ---------- */
+
+  { cat: "music", group: "ワールドBGM提供", year: "2020",
+    title: "Stair54",
+    role: "BGM 提供",
+    note: "ワールド作者: 三日坊主",
     links: [
-      { label: "公式サイト", url: "https://example.com" },
-    ],
-  },
-  {
-    year: "2025",
-    title: "別の作品タイトル",
-    role: "楽曲提供（ED テーマ）",
-    tags: ["音楽"],
-    note: "",
-    tweetId: "",
-    links: [],
-  },
+      { label: "動画", url: "https://youtu.be/mv5uKZJ6Gik" },
+      { label: "VRChat ワールド", url: "https://vrchat.com/home/world/wrld_d6aad045-2549-46d2-bfa7-3bc4d31df41e/info" },
+    ] },
+
+  { cat: "music", group: "ワールドBGM提供", year: "2019",
+    title: "森の唄",
+    role: "BGM 提供",
+    note: "ワールド「The Mori 2019 Christmas」（作者: phi16）へ提供。",
+    links: [{ label: "動画", url: "https://youtu.be/B-WrwG3L9L0" }] },
+
+  { cat: "music", group: "レコーディング参加", year: "2025",
+    title: "Raining on the Moon / Somel",
+    role: "ピアノ（Tr.02）", note: "",
+    tweetId: "1978788716262125751", links: [] },
+
+  { cat: "music", group: "レコーディング参加", year: "2024",
+    title: "Craft / Somel",
+    role: "Piano / Electric Piano", note: "",
+    tweetId: "1841096184078983438", links: [] },
+
+  { cat: "music", group: "レコーディング参加", year: "2023",
+    title: "Butterfly",
+    role: "ピアノ", note: "EMN Records。フュージョンに混ざるラテン役として参加。",
+    tweetId: "1700108874932715709", links: [] },
+
+  { cat: "music", group: "レコーディング参加", year: "2023",
+    title: "ow (2022-edit)",
+    role: "ピアノアレンジ版", note: "Spotify 配信。",
+    tweetId: "1696149857894068537", links: [] },
+
+  { cat: "music", group: "レコーディング参加", year: "2023",
+    title: "うきぐも",
+    role: "ピアノ", note: "EMN Records Jazz Study Group。",
+    tweetId: "1679264646359052288", links: [] },
+
+  { cat: "music", group: "レコーディング参加", year: "2022",
+    title: "#Vオリジャズコンピ",
+    role: "ピアノ（4曲）", note: "BOOTH にて頒布。",
+    tweetId: "1558421031814983680", links: [] },
 ];
 
 /* ===== ここから下は基本触らなくて大丈夫 ===== */
 
-// --- X widgets.js ローダ（公式スニペット） ---
+// X widgets.js ローダ（公式スニペット）
 window.twttr = (function (d, s, id) {
   const fjs = d.getElementsByTagName(s)[0];
   const t = window.twttr || {};
@@ -247,28 +463,22 @@ window.twttr = (function (d, s, id) {
 const theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 const el = (tag, cls) => { const n = document.createElement(tag); if (cls) n.className = cls; return n; };
 
-// --- ヘッダー ---
+// ヘッダー
 document.getElementById("site-name").textContent = PROFILE.name;
-document.getElementById("site-tagline").textContent = PROFILE.tagline;
+document.getElementById("site-latin").textContent = PROFILE.latin;
+document.getElementById("site-bio").textContent = PROFILE.bio;
 document.title = "Works — " + PROFILE.name;
 const plist = document.getElementById("profile-links");
 for (const l of PROFILE.links) {
-  const li = el("li");
-  const a = el("a");
-  a.href = l.url;
-  a.textContent = l.label;
+  const li = el("li"), a = el("a");
+  a.href = l.url; a.textContent = l.label;
   if (!l.url.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
-  li.append(a);
-  plist.append(li);
+  li.append(a); plist.append(li);
 }
 
-// --- 作品リスト ---
-const worksEl = document.getElementById("works");
-const cards = [];
-
-for (const w of WORKS) {
+// 作品カード
+function buildCard(w) {
   const card = el("article", "work");
-  card.dataset.tags = (w.tags || []).join("|");
 
   if (w.year) {
     const y = el("div", "work-year");
@@ -276,7 +486,7 @@ for (const w of WORKS) {
     card.append(y);
   }
 
-  const h = el("h2", "work-title");
+  const h = el("h3", "work-title");
   h.textContent = w.title;
   card.append(h);
 
@@ -296,16 +506,15 @@ for (const w of WORKS) {
   const links = (w.links || []).slice();
   if (w.tweetId) links.push({ label: "X のポストを開く", url: "https://x.com/i/status/" + w.tweetId });
   if (links.length) {
-    const ul = el("div", "work-links");
+    const box = el("div", "work-links");
     for (const l of links) {
       const a = el("a");
       a.href = l.url;
       a.textContent = l.label + " ↗";
-      a.target = "_blank";
-      a.rel = "noopener";
-      ul.append(a);
+      a.target = "_blank"; a.rel = "noopener";
+      box.append(a);
     }
-    card.append(ul);
+    card.append(box);
   }
 
   if (w.tweetId) {
@@ -315,11 +524,47 @@ for (const w of WORKS) {
     card.append(slot);
   }
 
-  worksEl.append(card);
-  cards.push(card);
+  return card;
 }
 
-// --- 埋め込みは画面に入ってから読む（初回表示を軽くする） ---
+// カテゴリ → 小見出し の順に組み立てる
+const worksEl = document.getElementById("works");
+const sections = [];
+
+CATEGORIES.forEach(function (c, i) {
+  const items = WORKS.filter(w => w.cat === c.key);
+  if (!items.length) return;
+
+  const sec = el("section", "cat");
+  sec.dataset.cat = c.key;
+
+  const kicker = el("p", "cat-title");
+  kicker.textContent = String(i + 1).padStart(2, "0");
+  sec.append(kicker);
+
+  const name = el("h2", "cat-name");
+  name.textContent = c.label;
+  sec.append(name);
+
+  let currentGroup = null, holder = sec;
+  for (const w of items) {
+    const g = w.group || "";
+    if (g !== currentGroup) {
+      currentGroup = g;
+      if (g) {
+        const gt = el("p", "group-title");
+        gt.textContent = g;
+        sec.append(gt);
+      }
+    }
+    holder.append(buildCard(w));
+  }
+
+  worksEl.append(sec);
+  sections.push(sec);
+});
+
+// 埋め込みは画面に入ってから読む
 function renderTweet(slot) {
   const id = slot.dataset.tweetId;
   let done = false;
@@ -334,14 +579,13 @@ function renderTweet(slot) {
     slot.append(f);
   };
 
-  // widgets.js がブロックされている場合の保険
-  const timer = setTimeout(fail, 8000);
+  const timer = setTimeout(fail, 8000);   // widgets.js がブロックされた場合の保険
 
   twttr.ready(function () {
     twttr.widgets.createTweet(id, slot, { theme: theme, align: "left", lang: "ja", dnt: true })
       .then(function (node) {
         clearTimeout(timer);
-        if (!node) { fail(); return; }   // 削除・非公開などで null が返る
+        if (!node) { fail(); return; }    // 削除・非公開などで null が返る
         done = true;
         const sk = slot.querySelector(".embed-skeleton");
         if (sk) sk.remove();
@@ -358,32 +602,25 @@ const io = new IntersectionObserver(function (entries) {
   }
 }, { rootMargin: "300px" });
 
-document.querySelectorAll(".embed").forEach(function (s) { io.observe(s); });
+document.querySelectorAll(".embed").forEach(s => io.observe(s));
 
-// --- タグフィルタ（tags を書いた作品があるときだけ表示） ---
-const allTags = [...new Set(WORKS.flatMap(w => w.tags || []))];
+// カテゴリフィルタ
 const filters = document.getElementById("filters");
-
-if (allTags.length > 1) {
-  const makeBtn = (label, value) => {
-    const b = el("button");
-    b.textContent = label;
-    b.dataset.value = value;
-    b.setAttribute("aria-pressed", value === "" ? "true" : "false");
-    b.addEventListener("click", () => {
-      filters.querySelectorAll("button").forEach(x =>
-        x.setAttribute("aria-pressed", String(x === b)));
-      cards.forEach(c => {
-        c.hidden = value !== "" && !c.dataset.tags.split("|").includes(value);
-      });
-    });
-    return b;
-  };
-  filters.append(makeBtn("すべて", ""));
-  allTags.forEach(t => filters.append(makeBtn(t, t)));
-} else {
-  filters.remove();
-}
+const makeBtn = (label, value) => {
+  const b = el("button");
+  b.textContent = label;
+  b.setAttribute("aria-pressed", value === "" ? "true" : "false");
+  b.addEventListener("click", () => {
+    filters.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    sections.forEach(s => { s.hidden = value !== "" && s.dataset.cat !== value; });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  return b;
+};
+filters.append(makeBtn("すべて", ""));
+CATEGORIES.forEach(c => {
+  if (WORKS.some(w => w.cat === c.key)) filters.append(makeBtn(c.label, c.key));
+});
 </script>
 </body>
 </html>
