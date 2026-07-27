@@ -238,7 +238,10 @@
    tweetId … XポストURL末尾の数字。省略すると埋め込みなし
    thumb   … タイルに出す画像のパス（例 "images/foo.jpg"）。省略すると文字だけのタイル
              images/ に画像を置いて1行足すだけ。16:9 で切り抜かれるので
-             横長（1280x720 程度）が扱いやすい
+             横長（1280x720 程度）が扱いやすい。
+             "https://..." の外部URLも指定可能（ファイルを保存せず参照する形）。
+             その場合は相手先の都合で切れることがあるが、読み込み失敗時は
+             自動で文字タイルに戻る
    ===================================================================== */
 
 const PROFILE = {
@@ -291,8 +294,13 @@ const WORKS = [
     title: "モチポリ・ファクトリー",
     role: "サウンドディレクター / コンポーザー",
     note: "SANRIO Virtual Festival 2024 内のコンテンツ。モチポリが生まれる工場で、大きな機械がリズミカルに稼働する多人数参加型ワールド。",
+    // 公式ページの og:image を直接参照（ファイルは保存していない）
+    thumb: "https://storage.googleapis.com/studio-cms-assets/projects/bXqzQoMZOD/s-1920x1080_v-frms_webp_8dd2e82a-728c-44a1-9b95-fdc66c685d0e.png",
     tweetId: "1754799675272737188",
-    links: [{ label: "XR映画ガイド", url: "https://note.com/xr_eiga_guide/n/n600169ac4468" }] },
+    links: [
+      { label: "公式ページ", url: "https://v-puroland.sanrio.co.jp/contents/mochipolyfactory" },
+      { label: "XR映画ガイド", url: "https://note.com/xr_eiga_guide/n/n600169ac4468" },
+    ] },
 
   { cat: "world", group: "案件（音まわり）", year: "2023",
     title: "SEN",
@@ -625,6 +633,8 @@ CATEGORIES.forEach(function (c, i) {
       img.alt = "";
       img.loading = "lazy";
       img.decoding = "async";
+      // 外部URLを参照している場合、リンク切れなら画像枠ごと消して文字タイルに戻す
+      img.addEventListener("error", () => box.remove());
       box.append(img);
       tile.append(box);
     }
@@ -678,6 +688,7 @@ function openWork(i) {
   if (showThumb) {
     const img = el("img");
     img.src = w.thumb; img.alt = ""; img.decoding = "async";
+    img.addEventListener("error", () => { mThumb.hidden = true; });
     mThumb.append(img);
   }
 
