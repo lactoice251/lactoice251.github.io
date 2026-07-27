@@ -14,7 +14,7 @@
 
 # 1. VRChat ワールド / VR作品
 
-## 案件（音まわり）
+## 案件制作
 
 ### Musical Treasure Hunt—Spectral Remix — 2024
 SANRIO Virtual Festival 2024 のショー。サンリオVfes 2023 のバーチャルパレード「Musical Treasure Hunt」の続編。監督は VTuber キヌ。
