@@ -73,6 +73,10 @@ VRChat ワールド。以下を出展。
 すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。
 - X: https://x.com/lactoice251/status/1537854925346340866
 
+### GLSL live coding と VRChat 音響・ビジュアルの連携 — 2021（未公開）
+twigl で音のパラメータを色にエンコード → TopazChat で送信 → VRChat 側でデコードして発音。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。
+- X: https://x.com/lactoice251/status/1360510503865307141
+
 ### Canon for cubes — 2021
 カノンのように音列を重ね、建物全体で立体音響を奏でる VR楽器。
 - X: https://x.com/lactoice251/status/1418163952966459393
@@ -132,12 +136,6 @@ GLSL Sound LiveCoding。VJ: 避雷（@lucknknock）。
 ### VRC Algorave — 2019
 Algorave in VRChat。演奏: らくとあいす／主催: @cannorin_vrc／撮影: @kinu_kaiko。Sonic Pi + Pure Data。
 - X: https://x.com/lactoice251/status/1210953359802261509
-
-## 技術
-
-### GLSL ライブコーディングによる VRChat 音楽/映像ライブ — 2021
-twigl で音のパラメータを色にエンコード → TopazChat で送信 → VRChat 側でデコードして発音。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。
-- X: https://x.com/lactoice251/status/1360510503865307141
 
 ## GLSL サウンド作品（NEORT）
 
