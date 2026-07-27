@@ -208,7 +208,7 @@ EMN Records の VR部門 Blue Rondo が主催する、没入型のリアルタ�
 - Live Music Performers: Somel (Vocals), Saki Sobune (Saxophone), **Lactoice (Keyboard)**, Emnyeca (Guitar), k (Bass), tsuyupon (Drums)
 - Live Visuals: tktk, uma_helmet ／ Staff: Sheena_baobab, kaki, Alpaka
 
-セットリスト: Opening Improvisation ／ Raining On the Moon (Alpaca) ／ **Take it easy (Music by Lactoice)** ／ ow (0b4k3) ／ Hikari (Emnyeca) ／ Interlude Improvisation ／ Farout (Talich Helfen / Somel)
+セットリスト: Opening Improvisation ／ Raining On the Moon (Alpaca) ／ Take it easy (Lactoice) ／ ow (0b4k3) ／ Hikari (Emnyeca) ／ Interlude Improvisation ／ Farout (Talich Helfen / Somel)
 
 - [EMN Records の告知](https://emnrecords.com/%E3%80%8Cblue-rondo-stratos%E3%80%8D%E3%81%8Craindance-immersive-2025-best-music-show%E3%81%AB%E3%83%8E%E3%83%9F%E3%83%8D%E3%83%BC%E3%83%88%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/)
 - YouTube: https://youtu.be/3IjGhiINz5A（詳細モーダルに埋め込み）
