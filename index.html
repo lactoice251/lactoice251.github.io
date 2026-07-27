@@ -272,6 +272,8 @@ const WORKS = [
     role: "作曲 / 立体音響エンジニアリング",
     note: "SANRIO Virtual Festival 2024 のショー。2023年のバーチャルパレード「Musical Treasure Hunt」の続編。監督: キヌ。",
     thumb: "images/1834539787572985857.jpg",
+    // 公式ページの og:image を直接参照（ファイルは保存していない）
+    thumb: "https://storage.googleapis.com/studio-cms-assets/projects/bXqzQoMZOD/s-720x405_v-fs_webp_bd980b68-646d-4306-8173-84eceae10184.jpg",
     tweetId: "1834539787572985857",
     links: [{ label: "公式ページ", url: "https://v-puroland.sanrio.co.jp/contents/musicaltreasurehuntsr" }] },
 
@@ -306,15 +308,25 @@ const WORKS = [
     title: "SEN",
     role: "音響（フィールドレコーディング / 音インタラクション / 立体音響 / 効果音）",
     note: "CinemaLeap・Psychic VR Lab 共同製作、伊東ケイスケ監督の VRアニメーション。茶碗型デバイスと心拍センサーを併用し、心拍を映像の光に変換して複数人で共有する。第80回ヴェネチア国際映画祭 XR部門「Venice Immersive」ノミネート。",
+    // プレスリリースの og:image を直接参照（width で縮小指定）
+    thumb: "https://prcdn.freetls.fastly.net/release_image/45020/24/45020-24-294f3512ea11d59e4a2b616644e03669-1920x1080.jpg?format=jpeg&auto=webp&fit=bounds&width=640",
     tweetId: "1688115015621165056",
-    links: [{ label: "STYLY プレスリリース", url: "https://styly.inc/ja/news/vr-animation-sen-nominated-veniceimmersive/" }] },
+    links: [
+      { label: "プレスリリース", url: "https://prtimes.jp/main/html/rd/p/000000024.000045020.html" },
+      { label: "STYLY プレスリリース", url: "https://styly.inc/ja/news/vr-animation-sen-nominated-veniceimmersive/" },
+    ] },
 
   { cat: "world", group: "案件制作", year: "2022",
     title: "Typeman",
     role: "VRサウンドエンジニア（音・インタラクション全般）",
     note: "WOWOW・CinemaLeap 共同製作、伊東ケイスケ監督の VR演劇。VRChat 上でリアルタイムに上演される25分の作品。第79回ヴェネチア国際映画祭 XR部門「Venice Immersive」ノミネート、最優秀短編賞受賞。",
+    // プレスリリースの og:image を直接参照（width で縮小指定）
+    thumb: "https://prcdn.freetls.fastly.net/release_image/45020/20/45020-20-f8141b65789ff9e2ac724866effe1d4f-3900x2194.jpg?format=jpeg&auto=webp&fit=bounds&width=640",
     tweetId: "1552595925230821378",
-    links: [{ label: "WOWOW ニュースリリース", url: "https://corporate.wowow.co.jp/news/products/4704.html" }] },
+    links: [
+      { label: "プレスリリース", url: "https://prtimes.jp/main/html/rd/p/000000020.000045020.html" },
+      { label: "WOWOW ニュースリリース", url: "https://corporate.wowow.co.jp/news/products/4704.html" },
+    ] },
 
   { cat: "world", group: "個人・共同制作", year: "2026",
     title: "Waves #256",
