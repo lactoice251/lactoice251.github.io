@@ -99,12 +99,20 @@
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   }
   .tile {
+    --pad-x: 15px; --pad-y: 14px;
     display: flex; flex-direction: column; gap: 3px;
     text-align: left; font: inherit; color: inherit;
     background: var(--card); border: 1px solid var(--line);
-    border-radius: 12px; padding: 14px 15px 12px;
-    cursor: pointer; min-height: 118px;
+    border-radius: 12px; padding: var(--pad-y) var(--pad-x) 12px;
+    cursor: pointer; min-height: 118px; overflow: hidden;
     transition: border-color .15s, transform .15s, box-shadow .15s;
+  }
+  .tile-thumb {
+    margin: calc(var(--pad-y) * -1) calc(var(--pad-x) * -1) 10px;
+    aspect-ratio: 16 / 9; overflow: hidden; background: var(--line);
+  }
+  .tile-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
   }
   .tile:hover, .tile:focus-visible {
     border-color: var(--fg); transform: translateY(-2px);
@@ -141,6 +149,11 @@
   .modal-close:hover { border-color: var(--fg); }
   .modal-year { font-size: 12px; color: var(--muted); letter-spacing: .1em; }
   .modal-title { font-size: 21px; font-weight: 700; margin: 2px 0 12px; line-height: 1.4; }
+  .modal-thumb {
+    margin: 0 0 14px; border-radius: 10px;
+    overflow: hidden; background: var(--line);
+  }
+  .modal-thumb img { width: 100%; display: block; }
   .modal-role {
     font-size: 14px; margin: 0 0 12px;
     padding-left: 11px; border-left: 2px solid var(--fg);
@@ -177,7 +190,7 @@
     header { padding: 44px 0 22px; }
     h1 { font-size: 25px; }
     .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
-    .tile { min-height: 104px; padding: 12px 13px 10px; border-radius: 10px; }
+    .tile { --pad-x: 13px; --pad-y: 12px; min-height: 104px; border-radius: 10px; }
     .tile-title { font-size: 14px; }
     .modal-scroll { padding: 20px 18px 24px; }
     .modal-title { font-size: 19px; }
@@ -208,6 +221,7 @@
     <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
     <div class="modal-year" id="modal-year"></div>
     <h2 class="modal-title" id="modal-title"></h2>
+    <div class="modal-thumb" id="modal-thumb"></div>
     <p class="modal-role" id="modal-role"></p>
     <p class="modal-note" id="modal-note"></p>
     <div class="modal-links" id="modal-links"></div>
@@ -222,6 +236,9 @@
    cat     … CATEGORIES のキー
    group   … カテゴリ内の小見出し（同じ文字列がまとまる／省略可）
    tweetId … XポストURL末尾の数字。省略すると埋め込みなし
+   thumb   … タイルに出す画像のパス（例 "images/foo.jpg"）。省略すると文字だけのタイル
+             images/ に画像を置いて1行足すだけ。16:9 で切り抜かれるので
+             横長（1280x720 程度）が扱いやすい
    ===================================================================== */
 
 const PROFILE = {
@@ -462,6 +479,7 @@ const WORKS = [
     title: "第3回VRアートイベント",
     role: "VR楽器演奏",
     note: "現時点で確認できる最も古い活動記録。",
+    thumb: "images/vrart3.jpg",
     tweetId: "1054542367477325824",
     links: [{ label: "配信アーカイブ", url: "https://youtu.be/Ay32kFXWsJc?t=3557" }] },
 
@@ -471,6 +489,7 @@ const WORKS = [
     title: "Stair54",
     role: "BGM 提供",
     note: "ワールド作者: 三日坊主",
+    thumb: "images/stair54.jpg",
     links: [
       { label: "動画", url: "https://youtu.be/mv5uKZJ6Gik" },
       { label: "VRChat ワールド", url: "https://vrchat.com/home/world/wrld_d6aad045-2549-46d2-bfa7-3bc4d31df41e/info" },
@@ -480,6 +499,7 @@ const WORKS = [
     title: "森の唄",
     role: "BGM 提供",
     note: "ワールド「The Mori 2019 Christmas」（作者: phi16）へ提供。",
+    thumb: "images/morinouta.jpg",
     links: [{ label: "動画", url: "https://youtu.be/B-WrwG3L9L0" }] },
 
   { cat: "music", group: "レコーディング参加", year: "2025",
@@ -582,6 +602,17 @@ CATEGORIES.forEach(function (c, i) {
     tile.type = "button";
     tile.dataset.index = String(idx);
 
+    if (w.thumb) {
+      const box = el("span", "tile-thumb");
+      const img = el("img");
+      img.src = w.thumb;
+      img.alt = "";
+      img.loading = "lazy";
+      img.decoding = "async";
+      box.append(img);
+      tile.append(box);
+    }
+
     const y = el("span", "tile-year");
     y.textContent = w.year || "";
     const t = el("span", "tile-title");
@@ -605,6 +636,7 @@ const mTitle = document.getElementById("modal-title");
 const mRole = document.getElementById("modal-role");
 const mNote = document.getElementById("modal-note");
 const mLinks = document.getElementById("modal-links");
+const mThumb = document.getElementById("modal-thumb");
 const mEmbed = document.getElementById("modal-embed");
 const embedCache = new Map();   // 一度読んだ埋め込みは使い回す
 
@@ -622,6 +654,16 @@ function openWork(i) {
   mRole.hidden = !w.role;
   mNote.textContent = w.note || "";
   mNote.hidden = !w.note;
+
+  // 埋め込みがある場合はそちらに画像が出るので、サムネは重複させない
+  const showThumb = Boolean(w.thumb && !w.tweetId);
+  mThumb.innerHTML = "";
+  mThumb.hidden = !showThumb;
+  if (showThumb) {
+    const img = el("img");
+    img.src = w.thumb; img.alt = ""; img.decoding = "async";
+    mThumb.append(img);
+  }
 
   const links = (w.links || []).slice();
   if (w.tweetId) links.push({ label: "X のポストを開く", url: "https://x.com/i/status/" + w.tweetId });
