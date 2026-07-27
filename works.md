@@ -62,6 +62,13 @@ WOWOW / CinemaLeap 共同製作の VR演劇（伊東ケイスケ監督）。VRCh
 立体音響処理を GPU で並列計算し、通常の音源数制限を超えた大量の 3D音源を鳴らせるワールド。
 - X: https://x.com/lactoice251/status/2079048041064186317
 
+### VR Sound Museum "otopia" — 2023（出展）
+VRChat ワールド。以下を出展。
+- EMN Records「Butterfly」「うきぐも」
+- VR楽器「Canon for cubes」「Trichord」
+- X: https://x.com/lactoice251/status/1700128019116110165
+- サムネイル: `images/trichord.jpg`（Trichord）
+
 ### Sound graphilia — 2022（未公開）
 すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。
 - X: https://x.com/lactoice251/status/1537854925346340866
@@ -189,12 +196,6 @@ VJ: 長野光宏, Chanoma ／ World owner: STANGUN ／ Camera: Moiri
 - X: https://x.com/bijutsuyarou/status/1341700103011139584 （投稿元 @bijutsuyarou）
 
 ## 展示・VR楽器
-
-### VR Sound Museum "otopia" — 2023（出展）
-以下を出展。
-- EMN Records「Butterfly」「うきぐも」
-- VR楽器「Canon for cubes」「Trichord」
-- X: https://x.com/lactoice251/status/1700128019116110165
 
 ### アルテマ音楽祭 — 2019
 VRによる新たな音楽表現を追究するライブイベント。2019年に複数回参加。
