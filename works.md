@@ -198,6 +198,22 @@ Spotify 配信が確認できなかったもの: Raining on the Moon（M3-2025�
 OFFICE DESTRUCTION GIRL と対バン。キヌ+ のピアノ。
 - X: https://x.com/lactoice251/status/2055272548317970702
 
+### Blue Rondo: Stratos — 2025-06
+EMN Records の VR部門 Blue Rondo が主催する、没入型のリアルタイム演奏パフォーマンス。現実と理想、過去と未来の中間点をテーマに、地球と宇宙をつなぐエレベーターを舞台とする。
+**担当: Keyboard**
+**「Raindance Immersive 2025」Best Music Show 部門ノミネート**（開催 6/1〜6/30）。
+
+- Visual Director / World Builder: tktk
+- Music Director: tsuyupon ／ Producer: Alpaka ／ Advisor: Somel
+- Live Music Performers: Somel (Vocals), Saki Sobune (Saxophone), **Lactoice (Keyboard)**, Emnyeca (Guitar), k (Bass), tsuyupon (Drums)
+- Live Visuals: tktk, uma_helmet ／ Staff: Sheena_baobab, kaki, Alpaka
+
+セットリスト: Opening Improvisation ／ Raining On the Moon (Alpaca) ／ **Take it easy (Music by Lactoice)** ／ ow (0b4k3) ／ Hikari (Emnyeca) ／ Interlude Improvisation ／ Farout (Talich Helfen / Somel)
+
+- [EMN Records の告知](https://emnrecords.com/%E3%80%8Cblue-rondo-stratos%E3%80%8D%E3%81%8Craindance-immersive-2025-best-music-show%E3%81%AB%E3%83%8E%E3%83%9F%E3%83%8D%E3%83%BC%E3%83%88%E3%81%95%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/)
+- YouTube: https://youtu.be/3IjGhiINz5A（詳細モーダルに埋め込み）
+- 本公演から2曲を収録したのが CD-R『Far Out / Raining on the Moon』
+
 ### Jazz in VRC — 2021〜（継続ユニット）
 サックス（sobunesaki ほか）× ピアノ（らくとあいす）× ドラム（bijutsuyarou ほか）による**ベースレス即興トリオ**。
 
