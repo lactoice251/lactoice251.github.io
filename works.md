@@ -69,21 +69,18 @@ VRChat ワールド。以下を出展。
 - X: https://x.com/lactoice251/status/1700128019116110165
 - サムネイル: `images/trichord.jpg`（Trichord）
 
-### Sound graphilia — 2022（未公開）
-すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。
-- X: https://x.com/lactoice251/status/1537854925346340866
-
-### GLSL live coding と VRChat 音響・ビジュアルの連携 — 2021（未公開）
-twigl で音のパラメータを色にエンコード → TopazChat で送信 → VRChat 側でデコードして発音。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。
-- X: https://x.com/lactoice251/status/1360510503865307141
-
 ### Canon for cubes — 2021
 カノンのように音列を重ね、建物全体で立体音響を奏でる VR楽器。
 - X: https://x.com/lactoice251/status/1418163952966459393
+- [VRChat ワールド](https://vrchat.com/home/world/wrld_3627dcf5-3a2a-4eff-8a8b-77a4e4dc796a/info)
+- YouTube: https://www.youtube.com/watch?v=v26s2mIAMAk（詳細モーダルに埋め込み）
+- サムネイル: VRChat ワールドページの og:image を外部参照
 
 ### Play with cubes — 2020
 誰でも VR楽器で演奏できるワールド。
 - X: https://x.com/lactoice251/status/1295293916594413568
+- [VRChat ワールド](https://vrchat.com/home/world/wrld_e5f397e7-950e-46d7-8d16-d09489afb184/info)
+- サムネイル: VRChat ワールドページの og:image を外部参照
 
 ### Amebient — 2020
 永遠に雨が降り続ける終わりかけの世界。雨が物に当たって生まれる音を組み合わせて音楽を作る。
@@ -100,13 +97,23 @@ VRChat の中で学習が進む強化学習。三目並べを AI同士で対戦�
 海で遊べるワールド。ボートに乗ったり物を投げたりして水と戯れる。Community Labs 入り。
 - X: https://x.com/lactoice251/status/1155505088430927872
 
-### MNIST 文字認識ワールド — 2019（未公開）
-VRChat に畳み込みニューラルネットワークを持ち込み手書き文字を認識させる実験。MNIST で学習した重みデータをテクスチャ化して持ち込んでいる。
-- X: https://x.com/lactoice251/status/1140237073573482498
-
 ### LightPool — 2019
 触ると光る水、水紋のうつる夜空、空間的に変化する音楽。空飛ぶイルカに乗って楽しめる。
 - X: https://x.com/lactoice251/status/1108516687291142145
+
+## 非公開・実験
+
+### Sound graphilia — 2022
+すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。
+- X: https://x.com/lactoice251/status/1537854925346340866
+
+### GLSL live coding と VRChat 音響・ビジュアルの連携 — 2021
+twigl で音のパラメータを色にエンコード → TopazChat で送信 → VRChat 側でデコードして発音。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。
+- X: https://x.com/lactoice251/status/1360510503865307141
+
+### MNIST 文字認識ワールド — 2019
+VRChat に畳み込みニューラルネットワークを持ち込み手書き文字を認識させる実験。MNIST で学習した重みデータをテクスチャ化して持ち込んでいる。
+- X: https://x.com/lactoice251/status/1140237073573482498
 
 ## 配布アセット
 
@@ -151,7 +158,39 @@ Algorave in VRChat。演奏: らくとあいす／主催: @cannorin_vrc／撮影
 
 ---
 
-# 3. イベント出演・演奏（ピアノ / VR楽器）
+# 3. 楽曲提供・レコーディング参加
+
+## ワールドBGM提供
+
+### Stair54 — 2020
+ワールド作者: 三日坊主
+- [動画](https://youtu.be/mv5uKZJ6Gik) / [VRChat ワールド](https://vrchat.com/home/world/wrld_d6aad045-2549-46d2-bfa7-3bc4d31df41e/info)
+
+### 森の唄 — 2019
+ワールド「The Mori 2019 Christmas」（作者: phi16）への BGM 提供。
+- [動画](https://youtu.be/B-WrwG3L9L0)
+
+## レコーディング参加（ピアノ／鍵盤）
+
+| 楽曲 | 年 | 担当 | X |
+|---|---|---|---|
+| Raining on the Moon / Somel | 2025 | ピアノ（Tr.02） | https://x.com/lactoice251/status/1978788716262125751 |
+| Craft / Somel | 2024 | Pf / EP | https://x.com/lactoice251/status/1841096184078983438 |
+| Butterfly | 2023 | ピアノ（EMN Records） | https://x.com/lactoice251/status/1700108874932715709 |
+| ow (2022-edit) | 2023 | ピアノアレンジ版（Spotify 配信） | https://x.com/lactoice251/status/1696149857894068537 |
+
+**Spotify**（詳細モーダルに再生プレイヤーを埋め込み、ジャケットをサムネに外部参照）
+
+- ow (2022-edit): `track/5RRZIE8umlH7H3H45ppaV7` — Spotify 上の表記は "ow - piano:arr lactoice"
+- Craft / Somel: `album/1MOp6ewx1evGlMHK0OEo51` — 2024-10-01 リリース
+
+Spotify 配信が確認できなかったもの: Raining on the Moon（M3-2025秋 頒布のCD）、Butterfly・#Vオリジャズコンピ（BOOTH 頒布）、うきぐも（YouTube プレミア公開 `hJibISuq3CU`）
+| うきぐも | 2023 | ピアノ（EMN Records Jazz Study Group） | https://x.com/emn_records/status/1679264646359052288 |
+| #Vオリジャズコンピ | 2022 | ピアノ（4曲、BOOTH 頒布） | https://x.com/lactoice251/status/1558421031814983680 |
+
+---
+
+# 4. イベント出演・演奏（ピアノ / VR楽器）
 
 ## ライブ出演（ピアノ）
 
@@ -205,31 +244,6 @@ VRによる新たな音楽表現を追究するライブイベント。2019年�
 VRアートイベントで **VR楽器を演奏**。現時点で確認できる最も古い活動記録。
 - X: https://x.com/lactoice251/status/1054542367477325824
 - [配信アーカイブ（おきゅたんbot チャンネル）](https://youtu.be/Ay32kFXWsJc?t=3557)
-
----
-
-# 4. 楽曲提供・レコーディング参加
-
-## ワールドBGM提供
-
-### Stair54 — 2020
-ワールド作者: 三日坊主
-- [動画](https://youtu.be/mv5uKZJ6Gik) / [VRChat ワールド](https://vrchat.com/home/world/wrld_d6aad045-2549-46d2-bfa7-3bc4d31df41e/info)
-
-### 森の唄 — 2019
-ワールド「The Mori 2019 Christmas」（作者: phi16）への BGM 提供。
-- [動画](https://youtu.be/B-WrwG3L9L0)
-
-## レコーディング参加（ピアノ／鍵盤）
-
-| 楽曲 | 年 | 担当 | X |
-|---|---|---|---|
-| Raining on the Moon / Somel | 2025 | ピアノ（Tr.02） | https://x.com/lactoice251/status/1978788716262125751 |
-| Craft / Somel | 2024 | Pf / EP | https://x.com/lactoice251/status/1841096184078983438 |
-| Butterfly | 2023 | ピアノ（EMN Records） | https://x.com/lactoice251/status/1700108874932715709 |
-| ow (2022-edit) | 2023 | ピアノアレンジ版（Spotify 配信） | https://x.com/lactoice251/status/1696149857894068537 |
-| うきぐも | 2023 | ピアノ（EMN Records Jazz Study Group） | https://x.com/emn_records/status/1679264646359052288 |
-| #Vオリジャズコンピ | 2022 | ピアノ（4曲、BOOTH 頒布） | https://x.com/lactoice251/status/1558421031814983680 |
 
 ---
 

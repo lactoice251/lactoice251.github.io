@@ -167,6 +167,13 @@
   }
   .modal-links a:hover { border-color: var(--fg); }
 
+  /* YouTube / Spotify 埋め込み（モーダルを開いたときだけ生成する） */
+  .media { display: grid; gap: 12px; margin-bottom: 18px; }
+  .media[hidden] { display: none; }
+  .media iframe { width: 100%; border: 0; border-radius: 12px; display: block; }
+  .media .ratio { aspect-ratio: 16 / 9; }
+  .media .ratio iframe { height: 100%; }
+
   .embed { display: flex; justify-content: center; }
   .embed[hidden] { display: none; }
   .embed > * { max-width: 100% !important; }
@@ -225,6 +232,7 @@
     <p class="modal-role" id="modal-role"></p>
     <p class="modal-note" id="modal-note"></p>
     <div class="modal-links" id="modal-links"></div>
+    <div class="media" id="modal-media"></div>
     <div class="embed" id="modal-embed"></div>
   </div>
 </dialog>
@@ -242,6 +250,9 @@
              "https://..." の外部URLも指定可能（ファイルを保存せず参照する形）。
              その場合は相手先の都合で切れることがあるが、読み込み失敗時は
              自動で文字タイルに戻る
+   youtube … YouTube 動画ID（例 "v26s2mIAMAk"）。詳細モーダルに動画を埋め込む
+   spotify … "track/xxxx" または "album/xxxx"。詳細モーダルに再生プレイヤーを埋め込む
+             （どちらも開いたときだけ読み込まれ、閉じると破棄される）
    ===================================================================== */
 
 const PROFILE = {
@@ -259,8 +270,8 @@ const PROFILE = {
 const CATEGORIES = [
   { key: "world",  label: "VRChat ワールド / VR作品" },
   { key: "coding", label: "サウンドライブコーディング / GLSL Sound" },
-  { key: "live",   label: "イベント出演・演奏" },
   { key: "music",  label: "楽曲提供・レコーディング参加" },
+  { key: "live",   label: "イベント出演・演奏" },
 ];
 
 const WORKS = [
@@ -342,33 +353,24 @@ const WORKS = [
     thumb: "images/trichord.jpg",
     tweetId: "1700128019116110165", links: [] },
 
-  { cat: "world", group: "個人・共同制作", year: "2022",
-    title: "Sound graphilia",
-    role: "個人制作（未公開）",
-    note: "すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。",
-    thumb: "images/1537854925346340866.jpg",
-    tweetId: "1537854925346340866", links: [] },
-
-  { cat: "world", group: "個人・共同制作", year: "2021",
-    title: "GLSL live coding と VRChat 音響・ビジュアルの連携",
-    role: "個人制作（未公開）",
-    note: "twigl で音のパラメータを色にエンコードし TopazChat で送信、VRChat 側でデコードして発音する。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。",
-    thumb: "images/1360510503865307141.jpg",
-    tweetId: "1360510503865307141", links: [] },
-
   { cat: "world", group: "個人・共同制作", year: "2021",
     title: "Canon for cubes",
     role: "個人制作",
     note: "カノンのように音列を重ね、建物全体で立体音響を奏でる VR楽器。",
-    thumb: "images/1418163952966459393.jpg",
-    tweetId: "1418163952966459393", links: [] },
+    // VRChat ワールドページの og:image を直接参照
+    thumb: "https://api.vrchat.cloud/api/1/file/file_3c7d5e70-05ed-481c-a2ee-83d48d2ab897/3/file",
+    youtube: "v26s2mIAMAk",
+    tweetId: "1418163952966459393",
+    links: [{ label: "VRChat ワールド", url: "https://vrchat.com/home/world/wrld_3627dcf5-3a2a-4eff-8a8b-77a4e4dc796a/info" }] },
 
   { cat: "world", group: "個人・共同制作", year: "2020",
     title: "Play with cubes",
     role: "個人制作",
     note: "誰でも VR楽器で演奏できるワールド。",
-    thumb: "images/1295293916594413568.jpg",
-    tweetId: "1295293916594413568", links: [] },
+    // VRChat ワールドページの og:image を直接参照
+    thumb: "https://api.vrchat.cloud/api/1/file/file_8cab602c-59f6-4395-a746-d4a5ffe457ef/3/file",
+    tweetId: "1295293916594413568",
+    links: [{ label: "VRChat ワールド", url: "https://vrchat.com/home/world/wrld_e5f397e7-950e-46d7-8d16-d09489afb184/info" }] },
 
   { cat: "world", group: "個人・共同制作", year: "2020",
     title: "Amebient",
@@ -393,18 +395,32 @@ const WORKS = [
     tweetId: "1155505088430927872", links: [] },
 
   { cat: "world", group: "個人・共同制作", year: "2019",
-    title: "MNIST 文字認識ワールド",
-    role: "個人制作（未公開）",
-    note: "VRChat に畳み込みニューラルネットワークを持ち込み、手書き文字を認識させる実験。MNIST で学習した重みデータをテクスチャ化して持ち込んでいる。",
-    thumb: "images/1140237073573482498.jpg",
-    tweetId: "1140237073573482498", links: [] },
-
-  { cat: "world", group: "個人・共同制作", year: "2019",
     title: "LightPool",
     role: "個人制作",
     note: "触ると光る水、水紋のうつる夜空、空間的に変化する音楽。空飛ぶイルカに乗って楽しめる。",
     thumb: "images/1108516687291142145.jpg",
     tweetId: "1108516687291142145", links: [] },
+
+  { cat: "world", group: "非公開・実験", year: "2022",
+    title: "Sound graphilia",
+    role: "個人制作",
+    note: "すずき氏（@suzuki_ith）の Graphilia と Coumarin を改造して作った、VR上のノードベース sound shader 環境。",
+    thumb: "images/1537854925346340866.jpg",
+    tweetId: "1537854925346340866", links: [] },
+
+  { cat: "world", group: "非公開・実験", year: "2021",
+    title: "GLSL live coding と VRChat 音響・ビジュアルの連携",
+    role: "個人制作",
+    note: "twigl で音のパラメータを色にエンコードし TopazChat で送信、VRChat 側でデコードして発音する。同じパラメータから IFS で映像も自動生成。音源位置を指定できるため立体音響ライブコーディングが可能。",
+    thumb: "images/1360510503865307141.jpg",
+    tweetId: "1360510503865307141", links: [] },
+
+  { cat: "world", group: "非公開・実験", year: "2019",
+    title: "MNIST 文字認識ワールド",
+    role: "個人制作",
+    note: "VRChat に畳み込みニューラルネットワークを持ち込み、手書き文字を認識させる実験。MNIST で学習した重みデータをテクスチャ化して持ち込んでいる。",
+    thumb: "images/1140237073573482498.jpg",
+    tweetId: "1140237073573482498", links: [] },
 
   { cat: "world", group: "配布アセット", year: "2020",
     title: "InteractiveWater（触れる水）",
@@ -545,7 +561,9 @@ const WORKS = [
 
   { cat: "music", group: "レコーディング参加", year: "2024",
     title: "Craft / Somel",
-    role: "Piano / Electric Piano", note: "",
+    role: "Piano / Electric Piano", note: "2024-10-01 リリース。",
+    thumb: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02d49af8bc37a92110d4997e86",
+    spotify: "album/1MOp6ewx1evGlMHK0OEo51",
     tweetId: "1841096184078983438", links: [] },
 
   { cat: "music", group: "レコーディング参加", year: "2023",
@@ -556,6 +574,8 @@ const WORKS = [
   { cat: "music", group: "レコーディング参加", year: "2023",
     title: "ow (2022-edit)",
     role: "ピアノアレンジ版", note: "Spotify 配信。",
+    thumb: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e022028a840d7cbea62c348b506",
+    spotify: "track/5RRZIE8umlH7H3H45ppaV7",
     tweetId: "1696149857894068537", links: [] },
 
   { cat: "music", group: "レコーディング参加", year: "2023",
@@ -675,6 +695,7 @@ const mRole = document.getElementById("modal-role");
 const mNote = document.getElementById("modal-note");
 const mLinks = document.getElementById("modal-links");
 const mThumb = document.getElementById("modal-thumb");
+const mMedia = document.getElementById("modal-media");
 const mEmbed = document.getElementById("modal-embed");
 const embedCache = new Map();   // 一度読んだ埋め込みは使い回す
 
@@ -682,6 +703,9 @@ document.getElementById("modal-close").addEventListener("click", () => modal.clo
 
 // 背景クリックで閉じる
 modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
+
+// 閉じたら iframe を破棄する（再生を止めるため）
+modal.addEventListener("close", () => { mMedia.innerHTML = ""; });
 
 function openWork(i) {
   const w = WORKS[i];
@@ -713,6 +737,30 @@ function openWork(i) {
     a.href = l.url; a.textContent = l.label + " ↗";
     a.target = "_blank"; a.rel = "noopener";
     mLinks.append(a);
+  }
+
+  // YouTube / Spotify（開いたときに生成し、閉じたら破棄するので常時は読み込まれない）
+  mMedia.innerHTML = "";
+  mMedia.hidden = !(w.youtube || w.spotify);
+  if (w.youtube) {
+    const box = el("div", "ratio");
+    const f = el("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + w.youtube;
+    f.title = w.title + " (YouTube)";
+    f.loading = "lazy";
+    f.allow = "accelerometer; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    box.append(f);
+    mMedia.append(box);
+  }
+  if (w.spotify) {
+    const f = el("iframe");
+    f.src = "https://open.spotify.com/embed/" + w.spotify;
+    f.title = w.title + " (Spotify)";
+    f.loading = "lazy";
+    f.allow = "clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+    f.height = w.spotify.startsWith("track/") ? 152 : 352;
+    mMedia.append(f);
   }
 
   mEmbed.innerHTML = "";
