@@ -31,20 +31,19 @@ https://x.com/foo/status/1234567890123456789
 
 初回のみ:
 
-1. GitHub で `<ユーザー名>.github.io` という名前のリポジトリを **Public** で作成
+1. GitHub で `lactoice251.github.io` という名前のリポジトリを **Public** で作成
 2. このディレクトリで:
 
 ```sh
-git init
-git add .
-git commit -m "init"
-git branch -M main
-git remote add origin https://github.com/<ユーザー名>/<ユーザー名>.github.io.git
+git remote add origin https://github.com/lactoice251/lactoice251.github.io.git
 git push -u origin main
 ```
 
 3. リポジトリの Settings → Pages で Source が `Deploy from a branch / main / (root)` になっているか確認
-4. `https://<ユーザー名>.github.io/` で公開される
+4. `https://lactoice251.github.io/` で公開される
+
+リポジトリ名がユーザー名と完全一致したときだけ、ドメイン直下（ルート）で公開される。
+名前が違うと `https://lactoice251.github.io/<リポジトリ名>/` になる。
 
 2回目以降は `git add . && git commit -m "..." && git push` だけ。
 
